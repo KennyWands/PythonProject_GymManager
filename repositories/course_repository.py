@@ -18,6 +18,26 @@ def save(course):
     course.id = id
 
 
+def delete_all():
+    sql = "DELETE FROM courses"
+    run_sql(sql)
+
+
+def select(id):
+    sql = "SELECT * FROM courses WHERE id = %s"
+    value = [id]
+    result = run_sql(sql, value)[0]
+    course = Course(
+        result["activity"],
+        result["grade"],
+        result["capacity"],
+        result["running"],
+        result["course_date"],
+        result["course_time"],
+    )
+    return course
+
+
 def select_all():
     courses_list = []
     sql = "SELECT * FROM courses"
@@ -27,16 +47,12 @@ def select_all():
             result["activity"],
             result["grade"],
             result["capacity"],
+            result["running"],
             result["course_date"],
             result["course_time"],
         )
         courses_list.append(course)
     return courses_list
 
-
-def delete_all():
-    sql = "DELETE FROM courses"
-    run_sql(sql)
-
     # delete by id
-    #edit
+    # edit

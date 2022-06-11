@@ -1,5 +1,9 @@
 from db.run_sql import run_sql
 from models.booking import Booking
+from models.member import Member
+from models.course import Course
+import repositories.member_repository as member_repo
+import repositories.course_repository as course_repo
 
 
 def save(booking):
@@ -12,10 +16,28 @@ def save(booking):
     return booking
 
 
-# delete all
 def delete_all():
     sql = "DELETE FROM bookings"
     run_sql(sql)
 
 
+def select(id):
+    sql = "SELECT * FROM bookings WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    member = member_repo.select(result["member_id"])
+    course = course_repo.select(result["course_id"])
+    booking = Booking(member, course, result["id"])
+    return booking
 
+
+def select_all():
+    bookings = []
+    sql = "SELECT * FROM bookings"
+    results = run_sql(sql)
+    for result in results:
+        member = member_repo.select(result["member_id"])
+        course = course_repo.select(result["course_id"])
+        booking = Booking(member, course, result["id"])
+        bookings.append(booking)
+    return bookings

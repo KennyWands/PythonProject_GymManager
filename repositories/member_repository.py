@@ -10,6 +10,19 @@ def save(member):
     member.id = id
 
 
+def delete_all():
+    sql = "DELETE FROM members"
+    run_sql(sql)
+
+
+def select(id):
+    sql = "SELECT * FROM members WHERE id = %s"
+    value = [id]
+    result = run_sql(sql, value)[0]
+    member = Member(result["name"], result["id"])
+    return member
+
+
 def select_all():
     member_list = []
     sql = "SELECT * FROM members"
@@ -17,8 +30,4 @@ def select_all():
     for result in results:
         member = Member(result["name"], result["id"])
         member_list.append(member)
-
-
-def delete_all():
-    sql = "DELETE FROM members"
-    run_sql(sql)
+    return member_list
