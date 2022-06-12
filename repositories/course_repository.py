@@ -3,8 +3,9 @@ from models.course import Course
 
 
 def save(course):
-    sql = """INSERT INTO courses (activity, grade, capacity, running, course_date, course_time) 
-    VALUES (%s, %s, %s,%s, %s, %s) RETURNING id"""
+    sql = """INSERT INTO courses (activity, grade, capacity,
+     running, course_date, course_time, bookings, recurring) 
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id"""
     values = [
         course.activity,
         course.grade,
@@ -12,6 +13,8 @@ def save(course):
         course.running,
         course.course_date,
         course.course_time,
+        course.bookings,
+        course.recurring
     ]
     results = run_sql(sql, values)
     id = results[0]["id"]
@@ -34,6 +37,9 @@ def select(id):
         result["running"],
         result["course_date"],
         result["course_time"],
+        result["bookings"],
+        result["recurring"],
+        result["id"],
     )
     return course
 
@@ -50,6 +56,9 @@ def select_all():
             result["running"],
             result["course_date"],
             result["course_time"],
+            result["bookings"],
+            result["recurring"],
+            result["id"],
         )
         courses_list.append(course)
     return courses_list

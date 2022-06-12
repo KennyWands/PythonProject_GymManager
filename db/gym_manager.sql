@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS members;
 CREATE TABLE members(
     id SERIAL PRIMARY KEY,
     name VARCHAR (255),
-    membership BOOL,
+    membership VARCHAR (255),
     active BOOL
 );
 CREATE TABLE courses(
@@ -15,7 +15,9 @@ CREATE TABLE courses(
     capacity INT,
     running BOOL,
     course_date DATE,
-    course_time TIME
+    course_time TIME,
+    bookings INT,
+    recurring BOOL
 
 );
 
@@ -24,6 +26,7 @@ CREATE TABLE bookings(
     member_id SERIAL REFERENCES members(id),
     course_id SERIAL REFERENCES courses(id)
 );
+
 
 SELECT members.name, courses.activity FROM members -- get these
 INNER JOIN bookings                                 -- via
