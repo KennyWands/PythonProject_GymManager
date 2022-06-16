@@ -1,7 +1,7 @@
 # PythonProject_GymManager
 Gym management app 
 
-To run the Program:
+## To run the Program:
 
 In the terminal type
 1. 'CREATEDB gym_manager' to create the database
@@ -9,9 +9,9 @@ In the terminal type
 3. 'python3 console.py' to populate the database with test data
 4. 'flask run' to launch the server
 
-In your browser navigate to '127.0.0.1:5002 '
+In your browser navigate to '127.0.0.1:5002'
 
-Project Brief
+## Project Brief
 
 Build an app allowing a local gym manage memberships and register members for courses.
 
