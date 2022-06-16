@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+
+<label for="members">Choose by name:</label>
+{%for member in members%}
+<p><a href="/members/{{member.name}}/get_by_name.html">{{member.name}}</a></p>
+{%endfor%}
+<div>
+    <label for="members">Choose by id:</label>
+    {%for member in members%}
+    <p><a href="/members/{{member.id}}/show.html">{{member.id}}</a></p>
+    {%endfor%}
+</div>
+{% endblock %}

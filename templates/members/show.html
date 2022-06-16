@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>member control</h3>
+<form action="/member/{{member.id}}" method="POST">
+    <div>
+        <label for="name">name:</label>
+        <input type="text" id="name" name="name" value="{{member.name}}" required autofocus>
+    </div>
+
+    <div>
+        <label for="membership">Membership type:</label>
+        <input type="text" id="membership" name="membership" value="{{member.membership}}" required>
+    </div>
+
+    <div>
+        <label for="active">Active:</label>
+        <select id="active" name="active">
+            <option value="True">Active</option>
+            <option value="False">Inactive</option>
+        </select>
+        <br><br>
+    </div>
+    <button type="submit">Update Member</button>
+</form>
+
+
+<form action="/member/{{member.id}}/delete.html" method="post">
+
+    <button type="submit">Delete Member {{member.id}}</button>
+</form>
+
+<form action=/bookings/new_booking.html>
+    <button type="submit">Add to course</button>
+</form>
+
+{% endblock %}

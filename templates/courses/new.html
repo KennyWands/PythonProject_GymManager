@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>Add New Course</h4>
+<a href="/courses/update.html">Search courses</a>
+<p></p>
+<form action="/courses/update.html" method="POST">
+
+    <div>
+        <label for="Activity">Activity:</label>
+        <input type="text" id="activity" name="activity" required>
+    </div>
+
+    <div>
+        <label for="grade">Grade:</label>
+        <input type="text" id="grade" name="grade" required>
+    </div>
+
+    <div>
+        <label for="capacity">Capacity:</label>
+        <input type="int" id="capacity" name="capacity" required>
+    </div>
+
+    <div>
+        <label for="running">Running:</label>
+        <select id="running" name="running">
+            <option value="True">Active</option>
+            <option value="False">Inactive</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="course_date">Date:</label>
+        <input type="date" id="course_date" name="course_date" required>
+    </div>
+
+    <div>
+        <label for="course_time">Time:</label>
+        <input type="time" id="course_time" name="course_time" required>
+    </div>
+    <div>
+        <label for="recurring">Recurring:</label>
+        <select id="recurring" name="recurring">
+            <option value="True">yes</option>
+            <option value="False">no</option>
+        </select>
+    </div>
+    <button type="submit">Update Course</button>
+    </form>
+
+
+   
+   
+
+
+
+    {% endblock %}

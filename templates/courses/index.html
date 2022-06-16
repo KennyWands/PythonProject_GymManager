@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>Courses</h4>
+<a href="/courses/search.html">Search courses</a>
+<p></p>
+<a href="/courses/new.html">Add new course</a>
+
+
+{% for course in courses %}
+<div class="Courses">
+    <div class="cards">
+
+
+        <p>Course No.
+            {{course.id}}</p>
+        <p>Activity:
+            {{course.activity}} </p>
+        <p>Capacity: {{course.capacity}}</p>
+        <p>Bookings: {{course.bookings}}</p>
+        <p>Date: {{course.course_date}}</p>
+        <p>Time: {{course.course_time}}</p>
+        <p>Recurring: {{course.recurring}}</p>
+        <form action="/courses/{{course.id}}/show.html" method="get">
+            <input type="submit" value="Edit">
+        </form>
+        {%if course.recurring == True %}
+        <form action="/courses/recurring.html" method="get">
+            <input type="submit" value="See all">
+        </form>
+        {%endif%}
+
+
+
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

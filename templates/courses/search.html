@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<label for="courses">Choose by Activity:</label>
+{%for course in courses%}
+<p><a href="/courses/{{course.activity}}/get_by_name.html">{{course.activity}}</a></p>
+{%endfor%}
+<div>
+    <label for="courses">Choose by id:</label>
+    {%for course in courses%}
+    <p><a href="/courses/{{course.id}}/show.html">{{course.id}}</a></p>
+    {%endfor%}
+</div>
+{% endblock %}

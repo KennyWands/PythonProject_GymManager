@@ -1,0 +1,18 @@
+
+
+<h3>Add New Dates</h3>
+<form action="/courses/{{course.id}}/new_date.html" method="post">
+<h3>Course name: {{course.activity}}</h3>
+<div>
+    <label for="course_date">Date:</label>
+    <input type="date" id="course_date" name="course_date" value="{{course.course_date}}" required autofocus>
+</div>
+
+<div>
+    <label for="course_time">Time:</label>
+    <input type="time" id="course_time" name="course_time" value="{{course.course_time}}" required>
+</div>
+<div>
+    <button type="submit">Update Course</button>
+</div>
+</form>

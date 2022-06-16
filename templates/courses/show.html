@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Course Control</h2>
+<form action="/course/{{course.id}}" method="POST">
+    <div>
+        <label for="course id">Course id: {{course.id}}</label>
+       
+    </div>
+    <div>
+        <label for="Activity">Activity:</label>
+        <input type="text" id="activity" name="activity" value="{{course.activity}}" required autofocus>
+    </div>
+
+    <div>
+        <label for="grade">Grade:</label>
+        <input type="text" id="grade" name="grade" value="{{course.grade}}" required>
+    </div>
+
+    <div>
+        <label for="capacity">Capacity:</label>
+        <input type="int" id="capacity" name="capacity" value="{{course.capacity}}" required autofocus>
+    </div>
+
+   
+
+    <div>
+        <label for="course_date">Date:</label>
+        <input type="date" id="course_date" name="course_date" value="{{course.course_date}}" required autofocus>
+    </div>
+
+    <div>
+        <label for="course_time">Time:</label>
+        <input type="time" id="course_time" name="course_time" value="{{course.course_time}}" required>
+    </div>
+    <div>
+        <label for="bookings">Bookings:</label>
+        <input type="text" id="grade" name="bookings" value="{{course.bookings}}" required>
+    </div>
+
+
+
+    <div>
+        <label for="running">Running:</label>
+        <select id="active" name="running">
+        <option value="True">Active</option>
+        <option value="False">Inactive</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="recurring">Recurring:</label>
+        <select id="recurring" name="recurring">
+        <option value="True">True</option>
+        <option value="False">False</option>
+        </select>
+    </div>
+    <button type="submit">Update Course</button>
+</form>
+
+<form 
+action="/course/{{course.id}}/recurring.html" method="post">
+    <button type="submit">Add more dates</button>
+</form>
+
+
+
+<form action="/course/{{course.id}}/delete.html" method="post">
+    <button type="submit">Delete Course {{course.id}}</button>
+</form>
+
+<form action=/bookings/new_booking.html>
+    <button type="submit">Add member</button>
+</form>
+
+
+{% endblock %}

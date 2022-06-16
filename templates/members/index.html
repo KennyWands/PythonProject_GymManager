@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>Members</h4>
+<a href="/members/search.html">Search Members</a>
+
+<p></p>
+<a href="/members/new.html">Add New Member</a>
+
+
+
+{% for member in members %}
+
+<body class="parent">
+
+
+    <div class="Members">
+        <div class="cards">
+            <p>Member No.
+                {{member.id}}</p>
+            <p> Member Name:
+                {{member.name}} </p>
+            <p>Membership Type: {{member.membership}}</p>
+            <img src="static/images/placeholder.jpg" alt="Member photo">
+            <p> Active: {{member.active}}</p>
+
+        </div>
+    </div>
+
+</body>
+{% endfor %}
+{% endblock %}

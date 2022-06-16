@@ -1,0 +1,17 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<h3>booking members</h3>
+<div class="bookings">
+    <div class="cards">
+        
+        <h2>Members on {{course.activity}}</h2>
+        {% for member in members%}
+        {{member.name}}
+        {%endfor%}
+        
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<a href=/bookings/new_booking.html>Add new booking</a>
+<p></p>
+<a href=/bookings>Remove booking</a>
+
+
+<h3>See Members on courses</h3>
+
+<label for="courses">Choose by Activity:</label>
+{%for course in courses%}
+<p><a href="/bookings/{{course.activity}}/show_by_name.html">{{course.activity}}</a></p>
+{%endfor%}
+<div>
+    <label for="courses">Choose by id:</label>
+    {%for course in courses%}
+    <p><a href="/bookings/{{course.id}}/show.html">{{course.id}}</a></p>
+    {%endfor%}
+</div>
+
+
+
+{% endblock %}

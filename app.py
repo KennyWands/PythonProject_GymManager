@@ -2,12 +2,14 @@ from flask import Flask, render_template
 from controllers.bookings_controller import bookings_blueprint
 from controllers.courses_controller import courses_blueprint
 from controllers.members_controller import members_blueprint
+from controllers.recurring_controller import recurring_blueprint
 
 app = Flask(__name__)
 
 app.register_blueprint(bookings_blueprint)
 app.register_blueprint(courses_blueprint)
 app.register_blueprint(members_blueprint)
+app.register_blueprint(recurring_blueprint)
 
 
 @app.route("/")

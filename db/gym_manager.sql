@@ -23,13 +23,21 @@ CREATE TABLE courses(
 
 CREATE TABLE bookings(
     id SERIAL PRIMARY KEY,
-    member_id SERIAL REFERENCES members(id),
-    course_id SERIAL REFERENCES courses(id)
+    member_id SERIAL REFERENCES members(id) ON DELETE CASCADE,
+    course_id SERIAL REFERENCES courses(id) ON DELETE CASCADE
 );
 
+CREATE TABLE recurring_events(
+    id SERIAL PRIMARY KEY,
+    course_date DATE,
+    course_time TIME,
+    course_id SERIAL REFERENCES courses(id) ON DELETE CASCADE
+);
 
 SELECT members.name, courses.activity FROM members -- get these
 INNER JOIN bookings                                 -- via
 ON bookings.member_id = members.id
 INNER JOIN courses
 ON courses.id = bookings.course_id;
+
+

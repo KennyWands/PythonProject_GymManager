@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>Course type:
+    {{recurring_courses.course.activity}}</p>
+{%for course in recurring_courses%}
+
+<p>Date:
+    {{course.course_date}} </p>
+<p>Time:
+    {{course.course_time}}</p>
+{%endfor%}
+{% endblock %}

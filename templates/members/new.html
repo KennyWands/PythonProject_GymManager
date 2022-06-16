@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>Members</h4>
+<a href="/members/update.html">Amend</a>
+<a href="/members/new.html">Add new member</a>
+<a href="/members/book">Add to course</a>
+<a href="/members/delete">Delete member</a>
+
+<p></p>
+<form action="/members/add.html" method="post">
+    <div>
+        <label for="name">name:</label>
+        <input type="text" id="name" name="name" required autofocus>
+    </div>
+
+    <div>
+        <label for="membership">Membership type:</label>
+        <input type="text" id="membership" name="membership" required>
+    </div>
+
+    <div>
+        <label for="active">Active:</label>
+        <select id="active" name="active">
+            <label for="status">Active?</label>
+
+
+            <option value="True">Active</option>
+            <option value="False">Inactive</option>
+        </select>
+    </div>
+
+
+    <button type="submit">Update Task</button>
+
+</form>
+
+
+{% endblock %}
